@@ -1,0 +1,4 @@
+baseURL = 'https://yanhaochen.github.io/'
+languageCode = 'zh-tw'
+title = 'Sean Blog'
+theme = 'cactus'

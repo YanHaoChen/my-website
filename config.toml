@@ -1,4 +1,24 @@
 baseURL = 'https://yanhaochen.github.io/'
 languageCode = 'zh-tw'
-title = 'Sean Blog'
+title = 'Yan-Hao(Sean) Blog'
 theme = 'cactus'
+
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "Writings"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 3
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 4

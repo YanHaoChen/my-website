@@ -45,10 +45,6 @@ $ brew install multipass
 $ multipass launch --name microk8s-vm --cpus 4 --mem 12G --disk 50G
 ```
 
-### Install microk8s on the Ubuntu Machine
-
-再來，就是在建立出來的 Ubuntu 上安裝 microk8s，讓 kubeflow 可以建立在上面。
-
 #### Login Ubuntu Machine(microk8s-vm) 
 
 Multipass 連進虛擬機的方式：

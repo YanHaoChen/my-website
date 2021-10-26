@@ -8,6 +8,8 @@ tags:
 
 又是一個讓我懷疑人生的問題。經過在 local 建置 kubeflow 的摧殘後（詳情請看：[Mac 上安裝 kubeflow? 其實不太簡單](https://yanhaochen.github.io/posts/build-kubeflow-on-mac/)），以為一切就要風平浪靜，但就在建立第一個 Jupyter Server （它的名字叫做 `playground-0`）時，好奇怪？怎麼 Server 一直無法成功建立，在 Status 上的狀態顯示`playground-0 default-scheduler  0/1 nodes are available: 1 pod has unbound immediate PersistentVolumeClaims`。為了解決這個問題，第一時間想到的就是查看 k8s 的狀況（也沒有其他招了...）：
 
+### 查看 pod 狀態
+
 ```bash
 # 如果是用 microk8s，後續的指令 'kubectl' 皆改成 'microk8s kubectl' 即可。
 $ kubectl get pods -n admin
@@ -42,6 +44,8 @@ Normal   Started           24m   kubelet            Started container playground
 ```
 
 此時，在 Events 的地方找到對應的訊息了。看起來，是在一開始（Age: 25m：0/1 nodes are available: 1 pod has unbound immediate），PersistentVolumeClaims（PVC）並沒有成功進行 bound 。但隨後（Age: 24m：Successfully assigned admin/playground-0 to microk8s-vm）就重新 bound 成功。
+
+### 重啟 Pod
 
 感覺上，似乎是這筆訊息，讓 Dashboard 顯示異常。這時候，我的解決方式很日常。透過重啟，洗掉 Event 中的錯誤：
 

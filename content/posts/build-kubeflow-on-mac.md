@@ -6,8 +6,6 @@ tags:
     - kubeflow
 ---
 
-# Mac 上安裝 kubeflow？其實不太簡單
-
 小弟因工作的緣故，需要開始熟悉 kubeflow 到底是什麼，所以就異想天開的想在自己的 Mac 上建立一個 kubeflow 的環境（痛苦的開始，往往都是如此）。以下將是我嘗試多種安裝組合後，幸運試出的一種架設方式，希望讀者也能在 Mac 上順利架起 kubeflow。首先，了解整體大概的流程，或許會比較有幫助。
 
 ### Overview
@@ -188,3 +186,5 @@ The dashboard is available at http://10.64.140.43.nip.io
 ```
 
 如果畫面一切正常，那就恭喜你，在 Mac 上架好 kubeflow 的環境囉！
+
+> 順道一題，如果是要在 ubuntu 上透過 microk8s 建立 kubeflow，只需要跳過 Multipass 及最後建立通道的部分，就一樣可以把 kubeflow 建立起來哦！

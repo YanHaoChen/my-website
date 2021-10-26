@@ -41,7 +41,9 @@ Normal   Created           24m   kubelet            Created container playground
 Normal   Started           24m   kubelet            Started container playground
 ```
 
-此時，在`Events` 的地方找到對應的訊息了。看起來是一開始（Age: 25m）PersistentVolumeClaims（PVC）並沒有成功進行 bound 。但隨後（Age: 24m：Successfully assigned admin/playground-0 to microk8s-vm）就重新 bound 成功。這時候，我的解決方式很日常。重啟治百病：
+此時，在 Events 的地方找到對應的訊息了。看起來，是在一開始（Age: 25m：0/1 nodes are available: 1 pod has unbound immediate），PersistentVolumeClaims（PVC）並沒有成功進行 bound 。但隨後（Age: 24m：Successfully assigned admin/playground-0 to microk8s-vm）就重新 bound 成功。
+
+感覺上，似乎是這筆訊息，讓 Dashboard 顯示異常。這時候，我的解決方式很日常。透過重啟，洗掉 Event 中的錯誤：
 
 ```bash
 $ kubectl delete pod playground-0 -n admin
@@ -75,7 +77,7 @@ Normal  Created    1s    kubelet            Created container playground
 Normal  Started    1s    kubelet            Started container playground
 ```
 
- 現在這個 Pod 的 `Events` 中，已經沒有剛剛出現的 `FailedScheduling`。此時，Dashboard 上的 Status 已經變成打勾，也可點擊 `Connect` 連進 Server 囉！
+ 現在這個 Pod 的 Event 中，已經沒有剛剛出現的錯誤訊息。此時，Dashboard 上的 Status 已經變成打勾，也可點擊 `Connect` 連進 Server 囉！
 
 ### 總結
 

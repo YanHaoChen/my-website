@@ -1,5 +1,5 @@
 ---
-title: "使用 kubeflow 的你也遇到這個問題了嗎? Jupyter Server: 1 pod has unbound immediate PersistentVolumeClaims?!"
+title: "使用 kubeflow 的你也遇到這個問題了嗎? Notebook Server: 1 pod has unbound immediate PersistentVolumeClaims?!"
 date: 2021-10-23T23:47:34+08:00
 draft: false
 tags:
